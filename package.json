@@ -3,6 +3,13 @@
   "version": "0.0.0",
   "description": "Encode \"facts\" into sortable keys. Decode keys. Make a matcher (partial encoder) to stream through keys.",
   "main": "index.js",
+  "files": [
+    "decode.js",
+    "encode.js",
+    "escapper.js",
+    "index.js",
+    "separator.js"
+  ],
   "scripts": {
     "test": "node tests.js"
   },
