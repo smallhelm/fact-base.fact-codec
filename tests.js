@@ -43,3 +43,31 @@ test("encode and decode " + n_tests + " random facts and indexes", function(t){
   });
   t.end();
 });
+
+test("ensure the encoding has not changed from previous versions", function(t){
+  var verify = require("./encoder-samples-to-verify-encoding-integrity.json");
+  t.deepEquals(_.size(verify), 200, "ensure all the encoding samples are included");
+
+  _.each(verify, function(v){
+    var index = v[0];
+    var fact = v[1];
+    var encoded = v[2];
+
+    t.deepEquals(encode(index, fact), encoded);
+    t.deepEquals(decode(encoded), [index, fact]);
+  });
+
+  t.end();
+});
+
+///////////////////////////////////////////////////////////
+// This will generate a new encoder-samples-to-verify-encoding-integrity.json
+// The point is to esnure the encoder doesn't change on the
+// next version. Only run this if there is a new, breaking
+// version release.
+//
+//require("fs").writeFileSync("./encoder-samples-to-verify-encoding-integrity.json", JSON.stringify(_.map(_.range(0, 200), function(){
+//  var index = generateIndex();
+//  var fact = generateFact();
+//  return [index, fact, encode(index, fact)];
+//})));
