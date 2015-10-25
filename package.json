@@ -1,0 +1,37 @@
+{
+  "name": "fact-base.fact-codec",
+  "version": "0.0.0",
+  "description": "Encode \"facts\" into sortable keys. Decode keys. Make a matcher (partial encoder) to stream through keys.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smallhelm/fact-base.fact-codec.git"
+  },
+  "keywords": [
+    "fact-base",
+    "facts",
+    "codec",
+    "sortable",
+    "keys",
+    "db",
+    "database",
+    "level-fact-base"
+  ],
+  "author": "smallhelm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smallhelm/fact-base.fact-codec/issues"
+  },
+  "homepage": "https://github.com/smallhelm/fact-base.fact-codec#readme",
+  "devDependencies": {
+    "gent": "^0.6.2",
+    "lodash": "^3.10.1",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "escape-regexp": "0.0.1"
+  }
+}
