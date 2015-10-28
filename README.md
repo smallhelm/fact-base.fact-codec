@@ -26,9 +26,9 @@ console.log("m.match(key)", m.match(key));
 ```
 Here's the output:
 ```txt
-key "avtoe!:user/name!Bob!txn0001!1!12345"
+key "avtoe|:user/name|Bob|txn0001|1|12345"
 decode ["avtoe", {a: ":user/name", v: "Bob", t: "txn0001", o: "1", e: "12345"}]
-m.prefix "avtoe!:user/name!Bob!"
+m.prefix "avtoe|:user/name|Bob|"
 m.match(key) true
 ```
 
@@ -56,7 +56,7 @@ A string that defines the order in which the fact should be sorted. It's expecte
 ### key
 A string that is the encoded fact and index. This key can be stored into your sorted database.
 ```js
-"eavto!12345!:user/name!Bob!txn0001!1"
+"eavto|12345|:user/name|Bob|txn0001|1"
 ```
 
 ### qStringfact
