@@ -1,6 +1,37 @@
 # wharfdb.stringfact-codec
 Encode stringfacts into sortable keys. Decode keys. Make a matcher (partial encoder) to search through keys.
 
+## Example
+```js
+var encode      = require("wharfdb.stringfact-codec/encode");
+var decode      = require("wharfdb.stringfact-codec/decode");
+var makeMatcher = require("wharfdb.stringfact-codec/makeMatcher");
+
+var key = encode("avtoe", {
+  e: "12345",
+  a: ":user/name",
+  v: "Bob",
+  t: "txn0001",
+  o: "1"
+});
+var m = makeMatcher("avtoe", {
+  a: ":user/name",
+  v: "Bob"
+});
+
+console.log("key", key);
+console.log("decode", decode(key));
+console.log("m.prefix", m.prefix);
+console.log("m.match(key)", m.match(key));
+```
+Here's the output:
+```txt
+key "avtoe!:user/name!Bob!txn0001!1!12345"
+decode ["avtoe", {a: ":user/name", v: "Bob", t: "txn0001", o: "1", e: "12345"}]
+m.prefix "avtoe!:user/name!Bob!"
+m.match(key) true
+```
+
 ## What is ...
 ### stringfact
 A WharfDB `fact` where all the values are strings. The strings may contain any characters they want and there is no limit on their length.
