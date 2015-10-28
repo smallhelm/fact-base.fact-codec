@@ -7,6 +7,7 @@ var encode = require("./encode");
 var decode = require("./decode");
 var escapper = require("./escapper");
 var separator = require("./separator");
+var makeMatcher = require("./makeMatcher");
 
 var generateIndex = function(){
   return _.shuffle("eavto".split("")).join("");
@@ -27,6 +28,18 @@ var generateFact = function(){
     o: _.random(0, 1) + ""
   })));
 };
+var generateQFact = function(index){
+  index = index || generateIndex();
+  var fact = generateFact();
+  var knowns = _.take(index.split(""), _.random(0, 4));
+  var qFact = {};
+  _.map(fact, function(v, k){
+    if(_.contains(knowns, k)){
+      qFact[k] = v;
+    }
+  });
+  return qFact;
+};
 
 var n_tests = 100000;
 
@@ -40,6 +53,21 @@ test("encode and decode " + n_tests + " random facts and indexes", function(t){
   
   _.each(_.range(0, n_tests), function(){
     recode(generateIndex(), generateFact());
+  });
+  t.end();
+});
+
+test("makeMatcher", function(t){
+  var test = function(index, qFact){
+    var m = makeMatcher(index, qFact);
+    var key = encode(index, _.extend(generateFact(), qFact));
+    t.ok(m.match(key));
+    t.equals(key.indexOf(m.prefix), 0);
+  };
+  _.each(_.range(0, n_tests), function(){
+    var index = generateIndex();
+    test(index, generateQFact());//completly random
+    test(index, generateQFact(index));//the qFact matches the order of the index
   });
   t.end();
 });
