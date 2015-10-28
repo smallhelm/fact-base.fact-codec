@@ -1,7 +1,7 @@
 {
-  "name": "fact-base.fact-codec",
+  "name": "wharfdb.stringfact-codec",
   "version": "0.0.0",
-  "description": "Encode \"facts\" into sortable keys. Decode keys. Make a matcher (partial encoder) to stream through keys.",
+  "description": "Encode string \"facts\" into sortable keys. Decode keys. Make a matcher (partial encoder) to stream through keys.",
   "main": "index.js",
   "files": [
     "decode.js",
@@ -15,24 +15,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smallhelm/fact-base.fact-codec.git"
+    "url": "git+https://github.com/smallhelm/wharfdb.stringfact-codec.git"
   },
   "keywords": [
-    "fact-base",
+    "wharfdb",
     "facts",
     "codec",
     "sortable",
     "keys",
     "db",
-    "database",
-    "level-fact-base"
+    "database"
   ],
   "author": "smallhelm",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/smallhelm/fact-base.fact-codec/issues"
+    "url": "https://github.com/smallhelm/wharfdb.stringfact-codec/issues"
   },
-  "homepage": "https://github.com/smallhelm/fact-base.fact-codec#readme",
+  "homepage": "https://github.com/smallhelm/wharfdb.stringfact-codec#readme",
   "devDependencies": {
     "gent": "^0.6.2",
     "lodash": "^3.10.1",
