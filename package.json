@@ -1,13 +1,15 @@
 {
   "name": "wharfdb.stringfact-codec",
   "version": "0.0.0",
-  "description": "Encode string \"facts\" into sortable keys. Decode keys. Make a matcher (partial encoder) to stream through keys.",
+  "description": "Encode stringfacts into sortable keys. Decode keys. Make a matcher (partial encoder) to search through keys.",
   "main": "index.js",
   "files": [
     "decode.js",
     "encode.js",
+    "encodeValue.js",
     "escapper.js",
     "index.js",
+    "makeMatcher.js",
     "separator.js"
   ],
   "scripts": {
